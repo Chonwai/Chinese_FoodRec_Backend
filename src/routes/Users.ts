@@ -9,16 +9,14 @@ import { paramMissingError } from '@shared/constants';
 const router = Router();
 const userDao = new UserDao();
 
-
 /******************************************************************************
  *                      Get All Users - "GET /api/users/all"
  ******************************************************************************/
 
 router.get('/all', async (req: Request, res: Response) => {
     const users = await userDao.getAll();
-    return res.status(OK).json({users});
+    return res.status(OK).json({ users });
 });
-
 
 /******************************************************************************
  *                       Add One - "POST /api/users/add"
@@ -34,7 +32,6 @@ router.post('/add', async (req: Request, res: Response) => {
     await userDao.add(user);
     return res.status(CREATED).end();
 });
-
 
 /******************************************************************************
  *                       Update - "PUT /api/users/update"
@@ -52,7 +49,6 @@ router.put('/update', async (req: Request, res: Response) => {
     return res.status(OK).end();
 });
 
-
 /******************************************************************************
  *                    Delete - "DELETE /api/users/delete/:id"
  ******************************************************************************/
@@ -62,7 +58,6 @@ router.delete('/delete/:id', async (req: Request, res: Response) => {
     await userDao.delete(Number(id));
     return res.status(OK).end();
 });
-
 
 /******************************************************************************
  *                                     Export
