@@ -7,7 +7,7 @@ const router = Router();
 
 // Add sub-routes
 router.use('/users', UserRouter);
-router.use('/dished', DishRouter);
+router.use('/dishes', DishRouter);
 
 // Export the base-router
 export default router;
