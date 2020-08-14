@@ -19,7 +19,7 @@ router.get('/all', async (req: Request, res: Response) => {
 });
 
 /******************************************************************************
- *                      Get Specify Dishe By ID - "GET /api/dishes/:id"
+ *                      Get Specify Dish By ID - "GET /api/dishes/:id"
  ******************************************************************************/
 
 router.get('/:id', async (req: Request, res: Response) => {
@@ -29,7 +29,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 });
 
 /******************************************************************************
- *                      Get Specify Dishe By Name - "GET /api/dishes/:name"
+ *                      Get Specify Dish By Name - "GET /api/dishes/:name"
  ******************************************************************************/
 
 router.get('/name/:name', async (req: Request, res: Response) => {
@@ -39,12 +39,24 @@ router.get('/name/:name', async (req: Request, res: Response) => {
 });
 
 /******************************************************************************
- *                      Get Specify Dishe By Ingredient - "GET /api/dishes/:ingredient"
+ *                      Get Specify Dish By Ingredient - "GET /api/dishes/:ingredient"
  ******************************************************************************/
 
 router.get('/ingredient/:ingredient', async (req: Request, res: Response) => {
     const { ingredient } = req.params as ParamsDictionary;
     const dishes = await dishDao.getOneByIngredient(decodeURIComponent(ingredient));
+    return res.status(OK).json({ dishes });
+});
+
+/******************************************************************************
+ *                      Get Specify Dishes By Filter - "GET /api/dishes?"
+ ******************************************************************************/
+
+router.get('/', async (req: Request, res: Response) => {
+    const ingredient = await String(req.query.ingredient);
+    const chinese_cuisine = await String(req.query.chinese_cuisine);
+    const taste = await String(req.query.taste);
+    const dishes = await dishDao.getSomeByFilter(chinese_cuisine, ingredient, taste);
     return res.status(OK).json({ dishes });
 });
 

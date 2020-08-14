@@ -14,6 +14,18 @@ export interface IDishDao {
 
 class DishDao implements IDishDao {
     /**
+     *
+     */
+    public async getAll(): Promise<IDish[]> {
+        // TODO
+        let dishes: object = [];
+        await instance.cypher(`MATCH (n:Dish) RETURN n`, {}).then((res: any) => {
+            dishes = Utils.integrateResultList(res);
+        });
+        return dishes as any;
+    }
+
+    /**
      * @param id
      */
     public async getOne(id: string): Promise<IDish | null> {
@@ -30,7 +42,7 @@ class DishDao implements IDishDao {
     /**
      * @param name
      */
-    public async getOneByName(name: String): Promise<IDish | null> {
+    public async getOneByName(name: string): Promise<IDish | null> {
         // TODO
         let dish: object = [];
         await instance
@@ -44,7 +56,7 @@ class DishDao implements IDishDao {
     /**
      * @param name
      */
-    public async getOneByIngredient(ingredient: String): Promise<IDish | null> {
+    public async getOneByIngredient(ingredient: string): Promise<IDish | null> {
         // TODO
         let dish: object = [];
         await instance
@@ -56,15 +68,26 @@ class DishDao implements IDishDao {
     }
 
     /**
-     *
+     * @param name
      */
-    public async getAll(): Promise<IDish[]> {
+    public async getSomeByFilter(
+        chinese_curisine: string,
+        ingredient: string,
+        taste: string
+    ): Promise<IDish | null> {
         // TODO
-        let dishes: object = [];
-        await instance.cypher(`MATCH (n:Dish) RETURN n`, {}).then((res: any) => {
-            dishes = res.records;
-        });
-        return dishes as any;
+        let dish: object = [];
+        await instance
+            .cypher(
+                `MATCH (d:Dish)-[r1:is_one_of]->(cc:Chinese_Cuisine {name: $chinese_curisine}), (d:Dish)-[r2:has_ingredient]->(i:Ingredient), (d:Dish)-[r3:has_taste]->(t:Taste)
+                                WHERE i.name =~'.*${ingredient}.*' AND t.name =~'.*${taste}.*'
+                                RETURN d`,
+                { chinese_curisine: chinese_curisine }
+            )
+            .then((res: any) => {
+                dish = Utils.integrateResultList(res);
+            });
+        return dish as any;
     }
 
     /**
