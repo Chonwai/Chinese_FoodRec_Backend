@@ -1,7 +1,11 @@
 import { IChineseCuisine } from '@entities/ChineseCuisine';
+import Neode from 'neode';
+import Utils from '../../utils/Utils';
+
+const instance = new Neode('bolt://localhost:11002', 'neo4j', '1234');
 
 export interface IChineseCuisineDao {
-    getOne: (name: string) => Promise<IChineseCuisine | null>;
+    getOne: (id: string) => Promise<IChineseCuisine | null>;
     getAll: () => Promise<IChineseCuisine[]>;
     add: (ChineseCuisine: IChineseCuisine) => Promise<void>;
     update: (ChineseCuisine: IChineseCuisine) => Promise<void>;
@@ -10,19 +14,29 @@ export interface IChineseCuisineDao {
 
 class ChineseCuisine implements IChineseCuisineDao {
     /**
-     * @param email
-     */
-    public async getOne(name: string): Promise<IChineseCuisine | null> {
-        // TODO
-        return [] as any;
-    }
-
-    /**
      *
      */
     public async getAll(): Promise<IChineseCuisine[]> {
         // TODO
-        return [] as any;
+        let chineseCuisines: object = [];
+        await instance.cypher(`MATCH (n:Chinese_Cuisine) RETURN n`, {}).then((res: any) => {
+            chineseCuisines = Utils.integrateResultList(res);
+        });
+        return chineseCuisines as any;
+    }
+
+    /**
+     * @param id
+     */
+    public async getOne(id: string): Promise<IChineseCuisine | null> {
+        // TODO
+        let chineseCuisine: object = [];
+        await instance
+            .cypher(`MATCH (n:Chinese_Cuisine) WHERE n.id = $id RETURN n`, { id: id })
+            .then((res: any) => {
+                chineseCuisine = Utils.integrateResultList(res);
+            });
+        return chineseCuisine as any;
     }
 
     /**

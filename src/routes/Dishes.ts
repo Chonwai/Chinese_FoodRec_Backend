@@ -29,7 +29,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 });
 
 /******************************************************************************
- *                      Get Specify Dish By Name - "GET /api/dishes/:name"
+ *                      Get Specify Dish By Name - "GET /api/dishes/name/:name"
  ******************************************************************************/
 
 router.get('/name/:name', async (req: Request, res: Response) => {
@@ -39,7 +39,7 @@ router.get('/name/:name', async (req: Request, res: Response) => {
 });
 
 /******************************************************************************
- *                      Get Specify Dish By Ingredient - "GET /api/dishes/:ingredient"
+ *                      Get Specify Dish By Ingredient - "GET /api/dishes/ingredient/:ingredient"
  ******************************************************************************/
 
 router.get('/ingredient/:ingredient', async (req: Request, res: Response) => {
