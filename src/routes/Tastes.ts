@@ -19,13 +19,23 @@ router.get('/all', async (req: Request, res: Response) => {
 });
 
 /******************************************************************************
+ *                      Get Specify Taste By ID - "GET /api/tastes/:id"
+ ******************************************************************************/
+
+router.get('/:id', async (req: Request, res: Response) => {
+    const { id } = req.params as ParamsDictionary;
+    const taste = await tasteDao.getOne(id);
+    return res.status(OK).json({ taste });
+});
+
+/******************************************************************************
  *                      Get Specify Taste By Name - "GET /api/tastes/name/:name"
  ******************************************************************************/
 
 router.get('/name/:name', async (req: Request, res: Response) => {
     const { name } = req.params as ParamsDictionary;
-    const cuisine = await tasteDao.getOneByName(name);
-    return res.status(OK).json({ cuisine });
+    const taste = await tasteDao.getOneByName(name);
+    return res.status(OK).json({ taste });
 });
 
 export default router;
