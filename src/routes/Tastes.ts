@@ -14,8 +14,8 @@ const tasteDao = new TasteDao();
  ******************************************************************************/
 
 router.get('/all', async (req: Request, res: Response) => {
-    const cuisines = await tasteDao.getAll();
-    return res.status(OK).json({ cuisines });
+    const tastes = await tasteDao.getAll();
+    return res.status(OK).json({ tastes });
 });
 
 /******************************************************************************
