@@ -81,7 +81,7 @@ class DishDao implements IDishDao {
             .cypher(
                 `MATCH (d:Dish)-[r1:is_one_of]->(cc:Chinese_Cuisine {name: $chinese_curisine}), (d:Dish)-[r2:has_ingredient]->(i:Ingredient), (d:Dish)-[r3:has_taste]->(t:Taste)
                                 WHERE i.name =~'.*${ingredient}.*' AND t.name =~'.*${taste}.*'
-                                RETURN d`,
+                                RETURN DISTINCT d`,
                 { chinese_curisine: chinese_curisine }
             )
             .then((res: any) => {
