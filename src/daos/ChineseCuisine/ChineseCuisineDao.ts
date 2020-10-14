@@ -2,7 +2,7 @@ import { IChineseCuisine } from '@entities/ChineseCuisine';
 import Neode from 'neode';
 import Utils from '../../utils/Utils';
 
-const instance = new Neode('bolt://localhost:11002', 'neo4j', '1234');
+const instance = new Neode(`${process.env.NEO4J_BOLT_PATH}`, 'neo4j', '1234');
 
 export interface IChineseCuisineDao {
     getOne: (id: string) => Promise<IChineseCuisine | null>;
