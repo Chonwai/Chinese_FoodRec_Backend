@@ -2,8 +2,11 @@ import { IIngredient } from '@entities/Ingredient';
 import Neode from 'neode';
 import Utils from '../../utils/Utils';
 
-const instance = new Neode(`${process.env.NEO4J_BOLT_PATH}`, 'neo4j', '1234');
-
+const instance = new Neode(
+    `${process.env.NEO4J_BOLT_PATH}`,
+    `${process.env.NEO4J_USERNAME}`,
+    `${process.env.NEO4J_PASSWORD}`
+);
 export interface IIngredientDao {
     getOne: (id: string) => Promise<IIngredient | null>;
     getAll: () => Promise<IIngredient[]>;
