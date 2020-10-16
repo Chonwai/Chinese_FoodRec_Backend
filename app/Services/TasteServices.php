@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\DAO\DAOSimpleFactory;
-use App\Http\Requests\User\TasteBasicRules;
+use App\Http\Requests\TasteBasicRules;
 use App\Jobs\SendSubscriptionMailJob;
 use App\Services\BaseServicesInterface;
 use App\Utils\ResponseUtils;
