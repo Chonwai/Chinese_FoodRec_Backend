@@ -4,11 +4,9 @@ namespace App\Services;
 
 use App\DAO\DAOSimpleFactory;
 use App\Http\Requests\TasteBasicRules;
-use App\Jobs\SendSubscriptionMailJob;
 use App\Services\BaseServicesInterface;
 use App\Utils\ResponseUtils;
 use App\Utils\Utils;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 class TasteServices implements BaseServicesInterface
@@ -55,87 +53,39 @@ class TasteServices implements BaseServicesInterface
         }
     }
 
-    /**
-     * Response the data.
-     *
-     * @param {string} [operation=api] - For API case and it will return the status, error code and data.
-     * @param {string} [operation=ssr] - For SSR case and it only return data not include the status and error code.
-     * @return Array|Number
-     */
-    public function responseAll($operation)
+    public function responseAll()
     {
         $data = DAOSimpleFactory::createTasteDAO()->getAll();
 
-        return Utils::responseSSRorAPIFormat($data, $operation, 'unknownProblems');
+        return Utils::responseMessage($data, 'unknownProblems');
     }
 
-    /**
-     * Response the data.
-     *
-     * @param {string} [operation=api] - For API case and it will return the status, error code and data.
-     * @param {string} [operation=ssr] - For SSR case and it only return data not include the status and error code.
-     * @return Array|Number
-     */
-    public function responseSpecify($request, $operation)
+    public function responseSpecify($request)
     {
         $data = DAOSimpleFactory::createTasteDAO()->getSpecify($request);
 
-        return Utils::responseSSRorAPIFormat($data, $operation, 'unknownProblems');
+        return Utils::responseMessage($data, 'unknownProblems');
     }
 
-    /**
-     * Response the data.
-     *
-     * @param {string} [operation=api] - For API case and it will return the status, error code and data.
-     * @param {string} [operation=ssr] - For SSR case and it only return data not include the status and error code.
-     * @return Array|Number
-     */
-    public function insert($request, $operation)
+    public function insert($request)
     {
-        $data = DAOSimpleFactory::createSubscriptionsDAO()->insert($request);
-
-        if ($data) {
-            SendSubscriptionMailJob::dispatch($request->all())->delay(Carbon::now()->addSeconds(5));
-        }
-
-        return Utils::responseSSRorAPIFormat($data, $operation, 'fail');
+        //
     }
 
-    /**
-     * Response the data.
-     *
-     * @param {string} [operation=api] - For API case and it will return the status, error code and data.
-     * @param {string} [operation=ssr] - For SSR case and it only return data not include the status and error code.
-     * @return Array|Number
-     */
-    public function update($request, $operation)
+    public function update($request)
     {
-
+        //
     }
 
-    /**
-     * Response the data.
-     *
-     * @param {string} [operation=api] - For API case and it will return the status, error code and data.
-     * @param {string} [operation=ssr] - For SSR case and it only return data not include the status and error code.
-     * @return Array|Number
-     */
-    public function delete($request, $operation)
+    public function delete($request)
     {
-
+        //
     }
 
-    /**
-     * Response the data.
-     *
-     * @param {string} [operation=api] - For API case and it will return the status, error code and data.
-     * @param {string} [operation=ssr] - For SSR case and it only return data not include the status and error code.
-     * @return Array|Number
-     */
-    public function countAll($operation)
+    public function countAll()
     {
         $data = DAOSimpleFactory::createTasteDAO()->countAll();
 
-        return Utils::responseSSRorAPIFormat($data, $operation, 'unknownProblems');
+        return Utils::responseMessage($data, 'unknownProblems');
     }
 }
