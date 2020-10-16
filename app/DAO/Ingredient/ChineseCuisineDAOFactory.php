@@ -6,14 +6,14 @@ use App\DAO\Ingredient\BaseDAOFactory;
 use App\Models\User;
 use Bolt\Bolt;
 
-class TasteDAOFactory implements BaseDAOFactory
+class ChineseCuisineDAOFactory implements BaseDAOFactory
 {
     public function getAll()
     {
         $bolt = new Bolt($ip = 'localhost', $port = 7687);
         $bolt->setProtocolVersions(4.1);
         $bolt->init('Chinese Regional Cuisine Tiny', 'neo4j', '1234');
-        $bolt->run('MATCH (n:Taste) RETURN n');
+        $bolt->run('MATCH (n:Chinese_Cuisine) RETURN n');
         return $bolt->pull();
     }
 

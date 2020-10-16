@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Apis\ChineseCuisineController;
 use App\Http\Controllers\Apis\TasteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,4 +29,12 @@ Route::prefix('/v1')->group(function () {
 
     // Get All Tastes API
     Route::get('/tastes/all', [TasteController::class, 'responseAll']);
+
+    /**
+     * Chinese Cuisine API ------------------------------------------------------------
+     *
+     * @api
+     */
+    // Get All Chinese Cuisines API
+    Route::get('/chinese/cuisines/all', [ChineseCuisineController::class, 'responseAll']);
 });
