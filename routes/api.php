@@ -37,4 +37,13 @@ Route::prefix('/v1')->group(function () {
      */
     // Get All Chinese Cuisines API
     Route::get('/chinese/cuisines/all', [ChineseCuisineController::class, 'responseAll']);
+
+    /**
+     * Dish API ------------------------------------------------------------
+     *
+     * @api
+     */
+    // Get All Dishes API
+    Route::get('/dishes/all', [ChineseCuisineController::class, 'responseAll']);
+
 });
