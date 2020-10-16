@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Utils\GenerateUtils;
 use Illuminate\Support\Str;
 
-class UsersDAOFactory implements BaseDAOFactory
+class TasteDAOFactory implements BaseDAOFactory
 {
     public function getAll()
     {
