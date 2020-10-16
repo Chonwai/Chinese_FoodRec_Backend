@@ -4695,6 +4695,59 @@
         ]
     },
     {
+        "name": "stefanak-michal/bolt",
+        "version": "v1.2.1",
+        "version_normalized": "1.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stefanak-michal/Bolt.git",
+            "reference": "69d765f902c013b058e6227e72fa779cbebc78a7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/stefanak-michal/Bolt/zipball/69d765f902c013b058e6227e72fa779cbebc78a7",
+            "reference": "69d765f902c013b058e6227e72fa779cbebc78a7",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "ext-sockets": "*",
+            "php": ">=7.1.0"
+        },
+        "time": "2020-10-13T11:22:10+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Bolt\\": "/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michal Stefanak",
+                "role": "Developer"
+            }
+        ],
+        "description": "Bolt protocol library over TCP socket",
+        "homepage": "https://github.com/stefanak-michal/Bolt",
+        "keywords": [
+            "Socket",
+            "bolt",
+            "database",
+            "neo4j"
+        ],
+        "funding": [
+            {
+                "url": "https://www.paypal.me/MichalStefanak",
+                "type": "paypal"
+            }
+        ]
+    },
+    {
         "name": "swiftmailer/swiftmailer",
         "version": "v6.2.3",
         "version_normalized": "6.2.3.0",

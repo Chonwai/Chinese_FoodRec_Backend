@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b56bfb5d21eaae286e532c3ed2f8941",
+    "content-hash": "dd21e7ceb2e45edabdc765816a33cf93",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2254,6 +2254,57 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "stefanak-michal/bolt",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stefanak-michal/Bolt.git",
+                "reference": "69d765f902c013b058e6227e72fa779cbebc78a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stefanak-michal/Bolt/zipball/69d765f902c013b058e6227e72fa779cbebc78a7",
+                "reference": "69d765f902c013b058e6227e72fa779cbebc78a7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-sockets": "*",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michal Stefanak",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Bolt protocol library over TCP socket",
+            "homepage": "https://github.com/stefanak-michal/Bolt",
+            "keywords": [
+                "Socket",
+                "bolt",
+                "database",
+                "neo4j"
+            ],
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/MichalStefanak",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2020-10-13T11:22:10+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

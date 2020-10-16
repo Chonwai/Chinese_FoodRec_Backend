@@ -172,6 +172,7 @@ class ComposerStaticInitb42ccd31783e55cad39e0e20408e0bae
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Bolt\\' => 5,
         ),
         'A' => 
         array (
@@ -488,6 +489,10 @@ class ComposerStaticInitb42ccd31783e55cad39e0e20408e0bae
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'Bolt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stefanak-michal/bolt',
+        ),
         'Asm89\\Stack\\' => 
         array (
             0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
@@ -568,6 +573,32 @@ class ComposerStaticInitb42ccd31783e55cad39e0e20408e0bae
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+        'Bolt\\Bolt' => __DIR__ . '/..' . '/stefanak-michal/bolt/Bolt.php',
+        'Bolt\\PackStream\\IPacker' => __DIR__ . '/..' . '/stefanak-michal/bolt/PackStream/IPacker.php',
+        'Bolt\\PackStream\\IUnpacker' => __DIR__ . '/..' . '/stefanak-michal/bolt/PackStream/IUnpacker.php',
+        'Bolt\\PackStream\\v1\\Packer' => __DIR__ . '/..' . '/stefanak-michal/bolt/PackStream/v1/Packer.php',
+        'Bolt\\PackStream\\v1\\Unpacker' => __DIR__ . '/..' . '/stefanak-michal/bolt/PackStream/v1/Unpacker.php',
+        'Bolt\\Socket' => __DIR__ . '/..' . '/stefanak-michal/bolt/Socket.php',
+        'Bolt\\protocol\\AProtocol' => __DIR__ . '/..' . '/stefanak-michal/bolt/protocol/AProtocol.php',
+        'Bolt\\protocol\\IProtocol' => __DIR__ . '/..' . '/stefanak-michal/bolt/protocol/IProtocol.php',
+        'Bolt\\protocol\\V1' => __DIR__ . '/..' . '/stefanak-michal/bolt/protocol/V1.php',
+        'Bolt\\protocol\\V2' => __DIR__ . '/..' . '/stefanak-michal/bolt/protocol/V2.php',
+        'Bolt\\protocol\\V3' => __DIR__ . '/..' . '/stefanak-michal/bolt/protocol/V3.php',
+        'Bolt\\protocol\\V4' => __DIR__ . '/..' . '/stefanak-michal/bolt/protocol/V4.php',
+        'Bolt\\protocol\\V4_1' => __DIR__ . '/..' . '/stefanak-michal/bolt/protocol/V4_1.php',
+        'Bolt\\structures\\Date' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/Date.php',
+        'Bolt\\structures\\DateTime' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/DateTime.php',
+        'Bolt\\structures\\DateTimeZoneId' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/DateTimeZoneId.php',
+        'Bolt\\structures\\Duration' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/Duration.php',
+        'Bolt\\structures\\LocalDateTime' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/LocalDateTime.php',
+        'Bolt\\structures\\LocalTime' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/LocalTime.php',
+        'Bolt\\structures\\Node' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/Node.php',
+        'Bolt\\structures\\Path' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/Path.php',
+        'Bolt\\structures\\Point2D' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/Point2D.php',
+        'Bolt\\structures\\Point3D' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/Point3D.php',
+        'Bolt\\structures\\Relationship' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/Relationship.php',
+        'Bolt\\structures\\Time' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/Time.php',
+        'Bolt\\structures\\UnboundRelationship' => __DIR__ . '/..' . '/stefanak-michal/bolt/structures/UnboundRelationship.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',
