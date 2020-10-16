@@ -4,15 +4,13 @@ namespace App\DAO\Ingredient;
 
 use App\DAO\Ingredient\BaseDAOFactory;
 use App\Models\User;
-use Bolt\Bolt;
+use App\Utils\BoltUtils;
 
 class ChineseCuisineDAOFactory implements BaseDAOFactory
 {
     public function getAll()
     {
-        $bolt = new Bolt($ip = 'localhost', $port = 7687);
-        $bolt->setProtocolVersions(4.1);
-        $bolt->init('Chinese Regional Cuisine Tiny', 'neo4j', '1234');
+        $bolt = BoltUtils::makeConnect();
         $bolt->run('MATCH (n:Chinese_Cuisine) RETURN n');
         return $bolt->pull();
     }
