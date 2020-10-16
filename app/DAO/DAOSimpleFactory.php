@@ -2,12 +2,12 @@
 
 namespace App\DAO;
 
-use App\DAO\Ingredient\UsersDAOFactory;
+use App\DAO\Ingredient\TasteDAOFactory;
 
 class DAOSimpleFactory
 {
-    public static function createUsersDAO()
+    public static function createTasteDAO()
     {
-        return new UsersDAOFactory();
+        return new TasteDAOFactory();
     }
 }

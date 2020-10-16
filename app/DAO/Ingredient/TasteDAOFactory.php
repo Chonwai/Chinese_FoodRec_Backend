@@ -11,7 +11,7 @@ class TasteDAOFactory implements BaseDAOFactory
 {
     public function getAll()
     {
-        $data = User::paginate(20);
+        $data = "All Taste";
         return $data;
     }
 

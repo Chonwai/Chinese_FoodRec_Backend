@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Apis;
 
 use App\Http\Controllers\Apis\BaseControllerInterface;
 use App\Http\Controllers\Controller;
+use App\Services\TasteServices;
 use Illuminate\Http\Request;
 
 class TasteController extends Controller implements BaseControllerInterface
