@@ -5,14 +5,18 @@ namespace App\DAO\Ingredient;
 use App\DAO\Ingredient\BaseDAOFactory;
 use App\Models\User;
 use App\Utils\GenerateUtils;
+use Bolt\Bolt;
 use Illuminate\Support\Str;
 
 class TasteDAOFactory implements BaseDAOFactory
 {
     public function getAll()
     {
-        $data = "All Taste";
-        return $data;
+        $bolt = new Bolt($ip = 'localhost', $port = 7687);
+        $bolt->setProtocolVersions(4.1);
+        $bolt->init('Chinese Regional Cuisine Tiny', 'neo4j', '1234');
+        $bolt->run('MATCH (n:Taste) RETURN n');
+        return $bolt->pull();
     }
 
     public function getSpecify($request)

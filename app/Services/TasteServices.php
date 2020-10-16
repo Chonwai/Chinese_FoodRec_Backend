@@ -57,6 +57,8 @@ class TasteServices implements BaseServicesInterface
     {
         $data = DAOSimpleFactory::createTasteDAO()->getAll();
 
+        $data = Utils::extractBlotObject($data);
+
         return Utils::responseMessage($data, 'unknownProblems');
     }
 

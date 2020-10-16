@@ -13,7 +13,7 @@ class TasteController extends Controller implements BaseControllerInterface
     {
         $data = TasteServices::getInstance()->responseAll($operation = 'api');
 
-        return $data;
+        return response()->json($data, 200);
     }
 
     public function responseSpecify(Request $request)
