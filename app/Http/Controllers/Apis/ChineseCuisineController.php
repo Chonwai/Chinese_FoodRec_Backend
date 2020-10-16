@@ -30,14 +30,7 @@ class ChineseCuisineController extends Controller implements BaseControllerInter
 
     public function insert(Request $request)
     {
-        $status = ChineseCuisineServices::getInstance()->dataValidation($request, 'insert');
-
-        if ($status === true) {
-            $res = ChineseCuisineServices::getInstance()->insert($request, $operation = 'api');
-            return $res;
-        } else {
-            return response()->json($status, 200);
-        }
+        //
     }
 
     public function update(Request $request)

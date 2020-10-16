@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Apis\ChineseCuisineController;
+use App\Http\Controllers\Apis\DishController;
 use App\Http\Controllers\Apis\TasteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,8 @@ Route::prefix('/v1')->group(function () {
      * @api
      */
     // Get All Dishes API
-    Route::get('/dishes/all', [ChineseCuisineController::class, 'responseAll']);
+    Route::get('/dishes/all', [DishController::class, 'responseAll']);
 
+    // Get Specify Dish By Filter API
+    Route::get('/dishes', [DishController::class, 'responseSpecifyByFilter']);
 });
